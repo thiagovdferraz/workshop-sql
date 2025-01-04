@@ -140,3 +140,70 @@ order by product_name;
 --Selecione todas as ordens BETWEEN '04-July-1996' e '09-July-1996':
 select * from orders
 where order_date between '07/04/1996' and '07/09/1996';
+
+-- SQL SERVER
+-- Usando CONVERT
+SELECT CONVERT(VARCHAR, order_date, 120) FROM orders
+WHERE order_date BETWEEN '1996-04-07' AND '1996-09-07';
+
+-- Usando FORMAT
+SELECT FORMAT(order_date, 'yyyy-MM-dd') FROM orders
+WHERE order_date BETWEEN '1996-04-07' AND '1996-09-07';
+
+-- MY SQL
+SELECT DATE_FORMAT(order_date, '%Y-%m-%d') FROM orders
+WHERE order_date BETWEEN '1996-04-07' AND '1996-09-07';
+
+-- ORACLE
+SELECT TO_CHAR(order_date, 'YYYY-MM-DD') FROM orders
+WHERE order_date BETWEEN TO_DATE('1996-04-07', 'YYYY-MM-DD') AND TO_DATE('1996-09-07', 'YYYY-MM-DD');
+
+-- SQL LITE
+SELECT strftime('%Y-%m-%d', order_date) FROM orders
+WHERE order_date BETWEEN '1996-04-07' AND '1996-09-07';
+
+-- AGREGAÇÕES
+-- Exemplo de MIN()
+SELECT MIN(unit_price) AS preco_minimo
+FROM products;
+
+-- Exemplo de MAX()
+SELECT MAX(unit_price) AS preco_maximo
+FROM products;
+
+-- Exemplo de COUNT()
+SELECT COUNT(*) AS total_de_produtos
+FROM products;
+
+-- Exemplo de AVG()
+SELECT AVG(unit_price) AS preco_medio
+FROM products;
+
+-- Exemplo de SUM()
+SELECT SUM(quantity) AS quantidade_total_de_order_details
+FROM order_details;
+
+-- Calcula o menor preço unitário de produtos em cada categoria
+SELECT category_id, MIN(unit_price) AS preco_minimo
+FROM products
+GROUP BY category_id;
+
+-- Calcula o maior preço unitário de produtos em cada categoria
+SELECT category_id, MAX(unit_price) AS preco_maximo
+FROM products
+GROUP BY category_id;
+
+-- Conta o número total de produtos em cada categoria
+SELECT category_id, COUNT(*) AS total_de_produtos
+FROM products
+GROUP BY category_id;
+
+-- Calcula o preço médio unitário de produtos em cada categoria
+SELECT category_id, AVG(unit_price) AS preco_medio
+FROM products
+GROUP BY category_id;
+
+-- Calcula a quantidade total de produtos pedidos por pedido
+SELECT order_id, SUM(quantity) AS quantidade_total_por_pedido
+FROM order_details
+GROUP BY order_id;
