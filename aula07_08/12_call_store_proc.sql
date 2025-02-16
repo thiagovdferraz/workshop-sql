@@ -5,3 +5,5 @@ SELECT * FROM transactions;
 
 CALL realizar_transacao('d', 'azul', 14500, 'b9db5be4-e239-4355-909e-d24dc73eb84b');
 CALL realizar_transacao('c', 'verde', 454500, 'b9db5be4-e239-4355-909e-d24dc73eb84b');
+
+CALL ver_extrato('b9db5be4-e239-4355-909e-d24dc73eb84b');
