@@ -153,4 +153,4 @@ INSERT INTO RegistroVendas (cod_prod, qtde_vendida) VALUES (2, 5);
 
 -- Tentativa de venda de 16 unidades de Versao (deve falhar, pois só há 15 unidades disponíveis)
 INSERT INTO RegistroVendas (cod_prod, qtde_vendida) VALUES (3, 16);
-```
+``` 
