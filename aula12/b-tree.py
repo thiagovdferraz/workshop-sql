@@ -311,12 +311,12 @@ def main():
 
 main()
 
-BTree.insert
+# BTree.insert
 
-BTree.delete
+# BTree.delete
 
-lista = [1,2,3,4]
+# lista = [1,2,3,4]
 
-lista.insert
+# lista.insert
 
-lista.append
+# lista.append
